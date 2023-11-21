@@ -36,7 +36,7 @@ for dag, config in dags.items():
     }
 
     with DAG(
-        f'creatio_{config['source_table_name']}',
+        f"creatio_{config['source_table_name']}",
         default_args=default_args,
         description='Получение данных из CREATIO.',
         start_date=config['start_date'],
