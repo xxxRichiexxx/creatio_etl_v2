@@ -22,7 +22,7 @@ dags = {
         'dwh_script_path': r'/home/da/airflow/dags/creatio_etl_v2/scripts/remove_data.sql',
         'source_table_name': 'dbo.Account',
         'dwh_table_name': 'stage.creatio_account',
-        'ts_field_name': None,
+        'ts_field_name': 'modifiedon',
     }
 }
 
