@@ -45,6 +45,7 @@ for dag, config in dags.items():
         max_active_runs=1
     )   as globals()[dag]:
         
+        start = DummyOperator(task_id='Старт')        
 
         get_mssql_data = MSSQLOperator(
             task_id=f"get_{config['source_table_name']}",
@@ -56,3 +57,5 @@ for dag, config in dags.items():
             dwh_table_name=config['dwh_table_name'],
             ts_field_name=config['ts_field_name'],
         )
+
+        end = DummyOperator(task_id='Завершение')
