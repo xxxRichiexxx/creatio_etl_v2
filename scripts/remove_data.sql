@@ -1,1 +1,1 @@
-TRUNCATE TABLE {source_table_name};
+TRUNCATE TABLE {dwh_table_name};
