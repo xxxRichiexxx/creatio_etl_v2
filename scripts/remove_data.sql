@@ -1,2 +1,2 @@
-DELETE FROM TABLE {dwh_table_name}
+DELETE FROM {dwh_table_name}
 WHERE Id in ({ids});
