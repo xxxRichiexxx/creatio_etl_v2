@@ -59,3 +59,5 @@ for dag, config in dags.items():
         )
 
         end = DummyOperator(task_id='Завершение')
+
+        start >> get_mssql_data >> end
