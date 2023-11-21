@@ -47,6 +47,7 @@ for dag, config in dags.items():
         
 
         get_mssql_data = MSSQLOperator(
+            task_id=f'get_{config['source_table_name']}',
             source_connection_id=config['source_connection_id'],
             source_script_path=config['source_script_path'],
             dwh_connection_id=config['dwh_connection_id'],
