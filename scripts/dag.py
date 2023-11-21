@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CODE_DIR_PATH = os.path.join(BASE_DIR, 'lib')
 sys.path.append(CODE_DIR_PATH)
 
-from custom_operators import MSSQLOperator
+from CustomOperators import MSSQLOperator
 
 
 dags = {
