@@ -17,7 +17,7 @@ dags = {
         'schedule_interval': '@monthly',
         'start_date': dt.datetime(2021, 1, 1),
         'source_connection_id': 'creatio',
-        'source_script_path': r'~/airflow/dags/creatio_etl_v2/scripts',
+        'source_script_path': r'~/airflow/dags/creatio_etl_v2/scripts/get_data.sql',
         'dwh_connection_id': 'greenplum',
         'dwh_script_path': r'~/airflow/dags/creatio_etl_v2/scripts',
         'source_table_name': 'dbo.Account',
