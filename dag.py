@@ -1,6 +1,7 @@
 import datetime as dt
 import os
 import sys
+import yaml
 
 from airflow import DAG
 from airflow.operators.dummy import DummyOperator
@@ -12,19 +13,36 @@ sys.path.append(CODE_DIR_PATH)
 from CustomOperators import MSSQLOperator
 
 
-dags = {
-    'dag1': {
-        'schedule_interval': '@monthly',
-        'start_date': dt.datetime(2021, 1, 1),
-        'source_connection_id': 'creatio',
-        'source_script_path': r'/home/da/airflow/dags/creatio_etl_v2/scripts/get_data.sql',
-        'dwh_connection_id': 'greenplum',
-        'dwh_script_path': r'/home/da/airflow/dags/creatio_etl_v2/scripts/remove_data.sql',
-        'source_table_name': 'dbo.Account',
-        'dwh_table_name': 'stage.creatio_account',
-        'ts_field_name': 'modifiedon',
-    }
-}
+with open(r'config.yaml', 'r') as file:
+    dags = yaml.safe_load(file)
+# dags = {
+#     'dag1': {
+#         'tags': ['stage', 'creatio'],
+#         'schedule_interval': '@monthly',
+#         'start_date': dt.datetime(2021, 1, 1),
+#         'source_connection_id': 'creatio',
+#         'source_script_path': r'/home/da/airflow/dags/creatio_etl_v2/scripts/get_data.sql',
+#         'dwh_connection_id': 'greenplum',
+#         'dwh_script_path': r'/home/da/airflow/dags/creatio_etl_v2/scripts/remove_data.sql',
+#         'source_table_name': 'dbo.Account',
+#         'dwh_table_name': 'stage.creatio_account',
+#         'ts_field_name': 'modifiedon',
+#     },
+#     'dag2': {
+#         'tags': ['stage', 'creatio'],
+#         'schedule_interval': '@monthly',
+#         'start_date': dt.datetime(2021, 1, 1),
+#         'source_connection_id': 'creatio',
+#         'source_script_path': r'/home/da/airflow/dags/creatio_etl_v2/scripts/get_data.sql',
+#         'dwh_connection_id': 'greenplum',
+#         'dwh_script_path': r'/home/da/airflow/dags/creatio_etl_v2/scripts/remove_data.sql',
+#         'source_table_name': 'dbo.Account',
+#         'dwh_table_name': 'stage.creatio_account',
+#         'ts_field_name': 'modifiedon',
+#     }
+# }
+
+
 
 for dag, config in dags.items():
 
@@ -36,13 +54,14 @@ for dag, config in dags.items():
     }
 
     with DAG(
-        f"creatio_{config['source_table_name']}",
+        f"creatio.{config['source_table_name']}",
         default_args=default_args,
         description='Получение данных из CREATIO.',
         start_date=config['start_date'],
         schedule_interval=config['schedule_interval'],
         catchup=True,
-        max_active_runs=1
+        max_active_runs=1,
+        tags=config['tags'],
     )   as globals()[dag]:
         
         start = DummyOperator(task_id='Старт')        

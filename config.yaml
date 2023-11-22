@@ -1,0 +1,28 @@
+
+dag1:
+  tags:
+    -stage
+    -creatio
+  schedule_interval: '@monthly'
+  start_date: 2021-1-1
+  source_connection_id: creatio
+  source_script_path: /home/da/airflow/dags/creatio_etl_v2/scripts/get_data.sql
+  dwh_connection_id: greenplum
+  dwh_script_path: /home/da/airflow/dags/creatio_etl_v2/scripts/remove_data.sql
+  source_table_name: dbo.Account
+  dwh_table_name: stage.creatio_Account,
+  ts_field_name: modifiedon
+dag2:
+  tags:
+    -stage
+    -creatio
+  schedule_interval: '@monthly'
+  start_date: 2021-1-1
+  source_connection_id: creatio
+  source_script_path: /home/da/airflow/dags/creatio_etl_v2/scripts/get_data.sql
+  dwh_connection_id: greenplum
+  dwh_script_path: /home/da/airflow/dags/creatio_etl_v2/scripts/remove_data.sql
+  source_table_name: dbo.AccountType
+  dwh_table_name: stage.creatio_AccountType,
+  ts_field_name: modifiedon
+
