@@ -20,6 +20,8 @@ CREATE TABLE stage.creatio_NavNpsCalcutaion (
 	NavCriterionSix VARCHAR
 );
 
+COMMENT ON VIEW stage.creatio_NavNpsCalcutaion IS 'Таблица в исходном виде из системы УОС CREATIO.';
+
 DROP TABLE IF EXISTS stage.creatio_TsiPoll;
 CREATE TABLE stage.creatio_TsiPoll (
 	Id VARCHAR,
@@ -61,6 +63,8 @@ CREATE TABLE stage.creatio_TsiPoll (
 	NavPollDirectionId  VARCHAR
 );
 
+COMMENT ON VIEW stage.creatio_TsiPoll IS 'Таблица в исходном виде из системы УОС CREATIO.';
+
 DROP TABLE IF EXISTS stage.creatio_NavNpsCalculationType;
 CREATE TABLE stage.creatio_NavNpsCalculationType (
 	Id VARCHAR,
@@ -72,6 +76,8 @@ CREATE TABLE stage.creatio_NavNpsCalculationType (
 	Description VARCHAR,
 	ProcessListeners int
 );
+
+COMMENT ON VIEW stage.creatio_NavNpsCalculationType IS 'Таблица в исходном виде из системы УОС CREATIO.';
 
 
 DROP TABLE IF EXISTS stage.creatio_Account;
@@ -134,6 +140,7 @@ CREATE TABLE stage.creatio_Account (
 	NavCorrespondentCheck varchar(250) NOT NULL
 );
 
+COMMENT ON VIEW stage.creatio_Account IS 'Таблица в исходном виде из системы УОС CREATIO.';
 
 
 DROP TABLE IF EXISTS stage.creatio_NavGeoRegion;
@@ -149,6 +156,8 @@ CREATE TABLE stage.creatio_NavGeoRegion (
 	NavCountryId VARCHAR NULL
 );
 
+COMMENT ON VIEW stage.creatio_NavGeoRegion IS 'Таблица в исходном виде из системы УОС CREATIO.';
+
 DROP TABLE IF EXISTS stage.creatio_NavYesNo;
 CREATE TABLE stage.creatio_NavYesNo (
 	Id VARCHAR NOT NULL,
@@ -160,6 +169,8 @@ CREATE TABLE stage.creatio_NavYesNo (
 	Description varchar(250) NOT NULL,
 	ProcessListeners int NOT NULL
 );
+
+COMMENT ON VIEW stage.creatio_NavYesNo IS 'Таблица в исходном виде из системы УОС CREATIO.';
 
 DROP TABLE IF EXISTS stage.creatio_NavConversationScriptType;
 CREATE TABLE stage.creatio_NavConversationScriptType (
@@ -173,6 +184,8 @@ CREATE TABLE stage.creatio_NavConversationScriptType (
 	ProcessListeners int NOT NULL
 );
 
+COMMENT ON VIEW stage.creatio_NavConversationScriptType IS 'Таблица в исходном виде из системы УОС CREATIO.';
+
 DROP TABLE IF EXISTS stage.creatio_TsiPollType;
 CREATE TABLE stage.creatio_TsiPollType (
 	Id VARCHAR NOT NULL,
@@ -184,6 +197,8 @@ CREATE TABLE stage.creatio_TsiPollType (
 	ProcessListeners int NOT NULL,
 	Description varchar(500) NOT NULL
 );
+
+COMMENT ON VIEW stage.creatio_TsiPollType IS 'Таблица в исходном виде из системы УОС CREATIO.';
 
 DROP TABLE IF EXISTS stage.creatio_ConversationScript;
 CREATE TABLE stage.creatio_ConversationScript (
@@ -202,6 +217,8 @@ CREATE TABLE stage.creatio_ConversationScript (
 	NavTypeId VARCHAR NULL
 );
 
+COMMENT ON VIEW stage.creatio_ConversationScript IS 'Таблица в исходном виде из системы УОС CREATIO.';
+
 DROP TABLE IF EXISTS stage.creatio_NavPollStatus;
 CREATE TABLE stage.creatio_NavPollStatus (
 	Id VARCHAR NOT NULL,
@@ -214,6 +231,8 @@ CREATE TABLE stage.creatio_NavPollStatus (
 	ProcessListeners int NOT NULL
 );
 
+COMMENT ON VIEW stage.creatio_NavPollStatus IS 'Таблица в исходном виде из системы УОС CREATIO.';
+
 DROP TABLE IF EXISTS stage.creatio_NavQuotaType;
 CREATE TABLE stage.creatio_NavQuotaType (
 	Id VARCHAR NOT NULL,
@@ -225,6 +244,8 @@ CREATE TABLE stage.creatio_NavQuotaType (
 	Description varchar(250) NOT NULL,
 	ProcessListeners int NOT NULL
 );
+
+COMMENT ON VIEW stage.creatio_NavQuotaType IS 'Таблица в исходном виде из системы УОС CREATIO.';
 
 DROP TABLE IF EXISTS stage.creatio_Period;
 CREATE TABLE stage.creatio_Period (
@@ -243,6 +264,8 @@ CREATE TABLE stage.creatio_Period (
 	QuarterId VARCHAR NULL,
 	ParentId VARCHAR NULL
 );
+
+COMMENT ON VIEW stage.creatio_Period IS 'Таблица в исходном виде из системы УОС CREATIO.';
 
 
 DROP TABLE IF EXISTS stage.creatio_Country;
@@ -263,6 +286,7 @@ CREATE TABLE stage.creatio_Country (
 	NavRegionCodeId VARCHAR NULL
 );
 
+COMMENT ON VIEW stage.creatio_Country IS 'Таблица в исходном виде из системы УОС CREATIO.';
 
 
 DROP TABLE IF EXISTS stage.creatio_NavPollDirection;
@@ -277,6 +301,9 @@ CREATE TABLE stage.creatio_NavPollDirection (
 	ProcessListeners int NOT NULL
 );
 
+COMMENT ON VIEW stage.creatio_NavPollDirection IS 'Таблица в исходном виде из системы УОС CREATIO.';
+
+
 DROP TABLE IF EXISTS stage.creatio_AccountType;
 CREATE TABLE stage.creatio_AccountType (
 	Id VARCHAR NOT NULL,
@@ -288,6 +315,8 @@ CREATE TABLE stage.creatio_AccountType (
 	Description varchar(250) NOT NULL,
 	ProcessListeners int NOT NULL
 );
+
+COMMENT ON VIEW stage.creatio_AccountType IS 'Таблица в исходном виде из системы УОС CREATIO.';
 
 
 DROP TABLE IF EXISTS stage.autoretail_units;
@@ -315,3 +344,5 @@ CREATE TABLE stage.autoretail_units (
 	"MDAUDIT_stoianka"  VARCHAR(500),
 	"MDAUDIT_stoianka_code"   VARCHAR(500)
 );
+
+COMMENT ON VIEW stage.autoretail_units IS 'Таблица в исходном виде из системы УОС CREATIO.';
