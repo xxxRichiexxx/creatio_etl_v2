@@ -6,49 +6,18 @@ import yaml
 from airflow import DAG
 from airflow.operators.dummy import DummyOperator
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CODE_DIR_PATH = os.path.join(BASE_DIR, 'lib')
-sys.path.append(CODE_DIR_PATH)
+DAG_DIR = os.path.dirname(os.path.abspath(__file__))
+LIB_DIR = os.path.join(os.path.dirname(DAG_DIR), 'lib')
+sys.path.append(LIB_DIR)
 
 from CustomOperators import MSSQLOperator
 
 
 with open(
-    os.path.join(
-        os.path.dirname(os.path.abspath(__file__)), 
-        'config.yaml'
-    ),
-    'r'
+    os.path.join(DAG_DIR, 'config.yaml'),
+    'r',
 ) as file:
     dags = yaml.safe_load(file)
-# dags = {
-#     'dag1': {
-#         'tags': ['stage', 'creatio'],
-#         'schedule_interval': '@monthly',
-#         'start_date': dt.datetime(2021, 1, 1),
-#         'source_connection_id': 'creatio',
-#         'source_script_path': r'/home/da/airflow/dags/creatio_etl_v2/scripts/get_data.sql',
-#         'dwh_connection_id': 'greenplum',
-#         'dwh_script_path': r'/home/da/airflow/dags/creatio_etl_v2/scripts/remove_data.sql',
-#         'source_table_name': 'dbo.Account',
-#         'dwh_table_name': 'stage.creatio_account',
-#         'ts_field_name': 'modifiedon',
-#     },
-#     'dag2': {
-#         'tags': ['stage', 'creatio'],
-#         'schedule_interval': '@monthly',
-#         'start_date': dt.datetime(2021, 1, 1),
-#         'source_connection_id': 'creatio',
-#         'source_script_path': r'/home/da/airflow/dags/creatio_etl_v2/scripts/get_data.sql',
-#         'dwh_connection_id': 'greenplum',
-#         'dwh_script_path': r'/home/da/airflow/dags/creatio_etl_v2/scripts/remove_data.sql',
-#         'source_table_name': 'dbo.Account',
-#         'dwh_table_name': 'stage.creatio_account',
-#         'ts_field_name': 'modifiedon',
-#     }
-# }
-
-
 
 for dag, config in dags.items():
 
