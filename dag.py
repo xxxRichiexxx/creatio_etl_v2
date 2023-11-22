@@ -13,7 +13,13 @@ sys.path.append(CODE_DIR_PATH)
 from CustomOperators import MSSQLOperator
 
 
-with open(r'config.yaml', 'r') as file:
+with open(
+    os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), 
+        'config.yaml'
+    ),
+    'r'
+) as file:
     dags = yaml.safe_load(file)
 # dags = {
 #     'dag1': {
