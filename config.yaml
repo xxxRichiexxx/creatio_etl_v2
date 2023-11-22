@@ -10,7 +10,7 @@ dag1:
   dwh_connection_id: greenplum
   dwh_script_path: /home/da/airflow/dags/creatio_etl_v2/scripts/remove_data.sql
   source_table_name: dbo.Account
-  dwh_table_name: stage.creatio_Account,
+  dwh_table_name: stage.creatio_Account
   ts_field_name: modifiedon
 dag2:
   tags:
@@ -23,6 +23,6 @@ dag2:
   dwh_connection_id: greenplum
   dwh_script_path: /home/da/airflow/dags/creatio_etl_v2/scripts/remove_data.sql
   source_table_name: dbo.AccountType
-  dwh_table_name: stage.creatio_AccountType,
+  dwh_table_name: stage.creatio_AccountType
   ts_field_name: modifiedon
 
