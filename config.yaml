@@ -1,8 +1,8 @@
 
 dag1:
   tags:
-    -stage
-    -creatio
+    - stage
+    - creatio
   schedule_interval: '@monthly'
   start_date: 2021-01-01 00:00:00
   source_connection_id: creatio
@@ -14,8 +14,8 @@ dag1:
   ts_field_name: modifiedon
 dag2:
   tags:
-    -stage
-    -creatio
+    - stage
+    - creatio
   schedule_interval: '@monthly'
   start_date: 2021-01-01 00:00:00
   source_connection_id: creatio
