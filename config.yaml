@@ -4,7 +4,7 @@ dag1:
     -stage
     -creatio
   schedule_interval: '@monthly'
-  start_date: 2021-01-01
+  start_date: 2021-01-01 00:00:00
   source_connection_id: creatio
   source_script_path: /home/da/airflow/dags/creatio_etl_v2/scripts/get_data.sql
   dwh_connection_id: greenplum
@@ -17,7 +17,7 @@ dag2:
     -stage
     -creatio
   schedule_interval: '@monthly'
-  start_date: 2021-01-01
+  start_date: 2021-01-01 00:00:00
   source_connection_id: creatio
   source_script_path: /home/da/airflow/dags/creatio_etl_v2/scripts/get_data.sql
   dwh_connection_id: greenplum
